@@ -457,7 +457,83 @@ img
 			font-weight: 700
 			text-transform: uppercase
 	
+/* ===================================
+	 Discount
+	 =================================== */
+.discount
+	padding-top: 65px
+	padding-bottom: 65px
+	&__title
+		margin-bottom: 10px
+		text-align: center
+		font-size: 30px
+		font-weight: 700
+		&-mark
+			color: #f63939
+	&__subtitle
+		margin-bottom: 30px
+		margin-left: auto
+		margin-right: auto
+		max-width: 570px
+		text-align: center
+	&__info
+		margin-top: 100px
+		margin-bottom: 20px
+		color: #f63939
+		text-align: center
+	&__form
+		margin-left: auto
+		margin-right: auto
+		width: 295px
+		&-field
+			position: relative
+			z-index: 1
+			+pie-clearfix
+			& + &
+				margin-top: 15px
+		&-select-style
+			position: relative
+			&:after
+				content: ''
+				position: absolute
+				right: 15px
+				top: 23px
+				z-index: 1
+				+arr(9,5,#000,b)
+		&-select
+			appearance: none
+			padding: 0 38px 0 15px
+			width: 100%
+			height: 50px
+			font-size: 16px
+			line-height: 48px
+			border: 1px solid #bababa
+			border-radius: 6px
+			background-color: transparent
+		&-input
+			padding-left: 15px
+			padding-right: 15px
+			width: 100%
+			height: 50px
+			font-size: 16px
+			color: inherit
+			line-height: 50px
+			border: 1px solid #bababa
+			border-radius: 6px
+			+placeholder-color(#bababa)
+		button[type='submit']
+			border-radius: 6px
+		&-submit
+			width: 100%
+			padding-left: 0
+			padding-right: 0
+	&__form-info
+		margin-top: 15px
+		font-size: 16px
+		text-align: center
 	
+
+
 
 /* ===================================
 	 Other Styles

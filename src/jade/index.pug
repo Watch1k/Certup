@@ -70,3 +70,27 @@ block content
 					.cert__list-content
 						h3.cert__list-title получение заказа
 						p.cert__list-text Сразу после изготовления Вам направляется скан-копия документа, оригинал отправляется по почте
+
+	section.discount
+		.container
+			h2.discount__title
+				| Больше сертификатов - больше скидка!
+				span.discount__title-mark *
+			p.discount__subtitle Выберите, сколько сертификатов хотите заказать - и удивитесь, насколько больше становится ваша скидка!
+			p.discount__info *Акция действительна до 30 ноября 2016 года
+			form.discount__form(action='#')
+				.discount__form-field
+					.discount__form-select-style
+						select.discount__form-select
+							option.discount__form-option(value='1 сертификат') 1 сертификат
+							option.discount__form-option(value='2 сертификата') 2 сертификата
+							option.discount__form-option(value='3 сертификата') 3 сертификата
+							option.discount__form-option(value='4 сертификата') 4 сертификата
+							option.discount__form-option(value='5 сертификата') 5 сертификата
+				.discount__form-field
+					input.discount__form-input(type='text' placeholder='Имя')
+				.discount__form-field
+					input.discount__form-input(type='text' placeholder='Номер телефона')
+				.discount__form-field
+					button.discount__form-submit.btn.btn_blue(type='submit') оформить сертификаты
+			p.discount__form-info Мы перезвоним Вам в течение 3 минут.
