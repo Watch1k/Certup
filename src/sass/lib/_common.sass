@@ -149,12 +149,12 @@ img
 .btn
 	display: inline-block
 	&_blue
-		padding: 9px 29px 9px
+		padding: 10px 29px 9px
 		font-family: 'Gotham Pro', $default-fonts
 		font-size: 16px
 		color: #fff
 		font-weight: 700
-		line-height: 30px
+		line-height: 29px
 		text-transform: uppercase
 		background-color: #e87b05
 		background-image: linear-gradient(to top, #3ba1e2 0%, #3ba1e2 1%, #6eb5da 99%, #6eb5da 100%)
@@ -165,8 +165,8 @@ img
 			background-image: linear-gradient(to top, #6eb5da 0%, #6eb5da 1%, #3ba1e2 99%, #3ba1e2 100%)
 		&:active
 			background-image: linear-gradient(to top, #58a3ca 0%, #58a3ca 1%, #3290cb 99%, #3290cb 100%)
-
-
+	&_sm
+		padding: 11px 24px 8px
 
 /* ===================================
 	 Header
@@ -268,9 +268,118 @@ img
 	min-height: 930px
 	background-color: #b6b6b6
 	background-image: linear-gradient(to top, #eef5fb 0%, #fafcfd 99%, #fafcfd 100%)
-	
-	
-
+	&__col
+		float: left
+		width: 50%
+	&__title
+		margin-top: 90px
+		font-size: 46px
+		line-height: 1.04
+		font-weight: 300
+		margin-bottom: 25px
+		&-line
+			position: relative
+			z-index: 1
+			&:before
+				content: ''
+				position: absolute
+				left: 2px
+				right: 2px
+				bottom: -4px
+				height: 2px
+				background-color: #f6821b
+				z-index: 1
+	&__subtitle
+		margin-bottom: 25px
+		max-width: 610px
+		color: #8f939b
+		font-weight: 400
+	&__img
+		pointer-events: none
+		margin-top: -65px
+		max-width: none
+		width: calc(100% + 160px)
+		
+/* ===================================
+	 Code
+	 =================================== */
+.code
+	padding-top: 35px
+	padding-bottom: 43px
+	&__title
+		margin-bottom: 10px
+		text-align: center
+		font-size: 24px
+		font-weight: 300
+	&__form
+		text-align: center
+		font-size: 0
+		+pie-clearfix
+		&-field
+			font-size: 16px
+			display: inline-block
+			width: 456px
+			& + &
+				margin-left: 18px
+				width: 230px
+			& + & + &
+				width: auto
+		&-input
+			padding-left: 15px
+			padding-right: 15px
+			width: 100%
+			height: 50px
+			font-size: 16px
+			color: inherit
+			line-height: 50px
+			border: 1px solid #b9b9b9
+			border-radius: 9px
+			+placeholder-color(#c6c6c6)
+		button[type='submit']
+			border-radius: 6px
+		
+/* ===================================
+	 Econom
+	 =================================== */
+.econom
+	padding-top: 40px
+	padding-bottom: 40px
+	background-color: #f9fbfd
+	&__title
+		margin-bottom: 35px
+		margin-left: auto
+		margin-right: auto
+		max-width: 600px
+		font-size: 30px
+		font-weight: 500
+		line-height: 1.2
+	&__row
+		margin-left: auto
+		margin-right: auto
+		max-width: 1200px
+		+pie-clearfix
+	&__col
+		float: left
+		width: 33.3%
+		text-align: center
+		&:nth-child(1)
+			padding-left: 0
+			padding-right: 25px
+		&:nth-child(2)
+			padding-left: 15px
+			padding-right: 15px
+		&:nth-child(3)
+			padding-left: 40px
+			padding-right: 0
+	&__icon
+		margin-bottom: 20px
+		font-size: 0
+		.icon
+			font-size: 81px
+	&__desc
+		text-transform: uppercase
+		font-weight: 700
+		
 
 /* ===================================
 	 Other Styles

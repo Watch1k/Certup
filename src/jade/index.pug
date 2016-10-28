@@ -9,3 +9,36 @@ block content
 				p.start__subtitle Квалифицированная помощь в сертификации товаров, продукции, услуг, а также в оформлении разрешительных документов
 				a.btn.btn_blue(href='#') заказать звонок
 			.start__col
+				img.start__img(src='img/content/cert-start.png' alt='image')
+
+	.code
+		.container
+			p.code__title Не нашли нужный сертификат? Введите код ТН ВЭД и получите расчет стоимости
+			form.code__form(action='#')
+				.code__form-field
+					input.code__form-input(type='text' placeholder='Код ТН ВЭД')
+				.code__form-field
+					input.code__form-input(type='text' placeholder='Номер телефона')
+				.code__form-field
+					button.btn.btn_blue.btn_sm(type='submit') рассчитать стоимость
+
+	.econom
+		.container
+			h2.econom__title Работая с нами, Вы сэкономите время и не ошибетесь в выборе документов
+			.econom__row
+				.econom__col
+					.econom__icon
+						+i('econom1-original')
+					p.econom__desc Не нужно никуда выезжать
+					p.econom__text Все операции проводятся удаленно - отправка документов онлайн, доставка оригинала по почте
+				.econom__col
+					.econom__icon
+						+i('econom2-original')
+					p.econom__desc БЕсплатная консультация
+					p.econom__text Персональный менеджер подскажет, как правильно получить документы с учетом всех тонкостей
+				.econom__col
+					.econom__icon
+						+i('econom3-original')
+					p.econom__desc комплексный подход
+					p.econom__text Гибкие условия при заказе сертификатов для разнородных товаров
+
