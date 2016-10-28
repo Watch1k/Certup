@@ -104,35 +104,155 @@ block content
 					.manager__img
 						img.manager__image(src='img/content/manager-1.png' alt='image')
 					p.manager__name Жасулан
-					a.manager__phone(href='tel:+77711077888') +7 771 107 78 88
 					.manager__row
-						.manager__icon
+						.manager__phone-icon
+							+i('phone-original')
+						a.manager__phone(href='tel:+77711077888') +7 771 107 78 88
+					.manager__row
+						.manager__mail-icon
+							+i('mail-original')
 						a.manager__mail(href='mailto:zh.akhmetov@certup.kz') zh.akhmetov@certup.kz
 					a.manager__btn.btn.btn_blue(href='#') связаться с менеджером
 				.manager__col
 					ul.manager__list
 						li.manager__list-item
 							.manager__list-icon
-								+i('')
+								+i('mark-original')
 							.manager__list-text Поможет точно определить требуемый сертификат или декларацию из 250 существующих видов.
 						li.manager__list-item
 							.manager__list-icon
-								+i('')
+								+i('mark-original')
 							.manager__list-text Поможет собрать документы и сформировать запрос.
 						li.manager__list-item
 							.manager__list-icon
-								+i('')
+								+i('mark-original')
 							.manager__list-text Отправит документы во все требуемые инстанции.
 						li.manager__list-item
 							.manager__list-icon
-								+i('')
+								+i('mark-original')
 							.manager__list-text Добьется ускоренного оформления и снижения стоимости.
 				.manager__col
 					.manager__img
 						img.manager__image(src='img/content/manager-2.png' alt='image')
 					p.manager__name Салтанат
-					a.manager__phone(href='tel:+77024159929') +7 702 415 99 29
 					.manager__row
-						.manager__icon
+						.manager__phone-icon
+							+i('phone-original')
+						a.manager__phone(href='tel:+77024159929') +7 702 415 99 29
+					.manager__row
+						.manager__mail-icon
+							+i('mail-original')
 						a.manager__mail(href='mailto:o.saltanat@certup.kz') o.saltanat@certup.kz
 					a.manager__btn.btn.btn_blue(href='#') связаться с менеджером
+
+	section.faq
+		.container
+			h2.faq__title Часто задаваемые вопросы
+			p.faq__subtitle Часто задаваемые вопросы и ответы на них помогут Вам в решении проблем
+			.faq__row.js-tabs
+				.faq__list.js-tabs-nav
+					.faq__list-nav.is-active Как понять, подлежит ли мой товар сертификации или декларированию?
+					.faq__list-nav Как удостовериться в подлинности документа?
+					.faq__list-nav Чем отличается сертификат от декларации?
+					.faq__list-nav Что такое код ТН ВЭД и как его подобрать?
+					.faq__list-nav Какой сертификат необходимо оформить на автомобиль?
+					.faq__list-nav В чем преимущества получения сертификата ИСО?
+				.faq__content.js-tabs-content
+					.faq__content-item.is-active
+						p Сообщите нашему менеджеру код ТН ВЭД товара, описание с основными характеристиками и область применения. Вам будет предоставлена подробная консультация о требуемых документах, сроках и стоимости изготовления.
+						.text-center
+							img(src='img/content/faq1.jpg' alt='image')
+					.faq__content-item
+						p В течение 2-3 дней после выпуска сертификата или декларации их данные размещаются в Едином реестре Таможенного союза. По номеру документа Вы можете проверить на сайте Национального центра аккредитации <a href='http://www.rep.nca.kz' target='_blank'>www.rep.nca.kz</a> и Росаккредитации <a href='http://www.188.254.71.82/rds_ts_pub' target='_blank'>www.188.254.71.82/rds_ts_pub</a>.
+						p На сертификате и в декларации соответствия не могут быть указаны идентичные регистрационные номера. Это является свидетельством фальсифицированного документа.
+						.text-center
+							img(src='img/content/faq2.jpg' alt='image')
+					.faq__content-item
+						p Оба являются официальным документом, подтвердающим соответствие. Согласно техническим гнламентам, продукция подлежит либо сертификации, либо декларированию.
+						.faq__content-row
+							.faq__content-col50
+								p.faq__content-title Декларация
+								.faq__content-row
+									.faq__content-icon
+										+i('mark-blue-original')
+									p.faq__content-text Ответственность остается за производителем продукции
+								.faq__content-row
+									.faq__content-icon
+										+i('mark-blue-original')
+									p.faq__content-text Оформляется на обычном листе бумаги
+							.faq__content-col50
+								p.faq__content-title Сертификат
+								.faq__content-row
+									.faq__content-icon
+										+i('mark-blue-original')
+									p.faq__content-text Ответственность производитель разделяет с органом сертификации
+								.faq__content-row
+									.faq__content-icon
+										+i('mark-blue-original')
+									p.faq__content-text Оформляется на типографическом бланке
+					.faq__content-item
+						p Товарная Номенклатура Внешне–Экономической Деятельности – это классификатор товаров, создан для применения таможней и участниками ВЭД. Каждый товар имеет определенный код.
+						.text-center
+							img.faq__content-img-mod(src='img/content/faq4.jpg' alt='image')
+					.faq__content-item
+						p На автомобиль необходимо оформить Свидетельство безопасности конструкции транспортного средства (СБКТС). Обязательный документ, без которого запрещено обращение и использование колесных транспортных средств на территории Евразийского экономического союза. СБКТС предъявляется при таможенном пересечении границ любой из стран-участниц ЕАЭС, а именно при импорте из-за пределов ЕАЭС.
+						.text-center
+							img(src='img/content/faq5.jpg' alt='image')
+					.faq__content-item
+						.faq__content-hor-row
+							p.faq__content-hor-text
+								span.faq__content-hor-icon
+									+i('mark-blue-original')
+								| <b>Расширение потребительской удовлетворенности</b> - наличие сертификата ИСО повысит удовлетворенность потребителей и увеличит продажи.
+						.faq__content-hor-row
+							p.faq__content-hor-text
+								span.faq__content-hor-icon
+									+i('mark-blue-original')
+								| <b>Участие в закупках</b> - наличие сертификатов исо дает право на получение условных скидок.
+						.faq__content-hor-row
+							p.faq__content-hor-text
+								span.faq__content-hor-icon
+									+i('mark-blue-original')
+								| <b>Экологические преимущества</b> - наличие сертификата свидетельствует о том, что предприятие борется с негативным воздействием на окружающую среду.
+						.faq__content-hor-row
+							p.faq__content-hor-text
+								span.faq__content-hor-icon
+									+i('mark-blue-original')
+								| <b>Участие в крупных бизнес</b> - проектах, с возможностью получения "длинных займов" (Даму, ЕБРР, Гос.поддержка).
+
+	section.comment
+		.comment__container.container
+			h2.comment__title Клиенты о нас
+			.comment__row
+				.comment__item
+					p.comment__text ... Нам импонировала не только приемлемая ценовая политика, но и высокая культура общения Вашего персонала...
+					p.comment__author - Козыбахов А.К.,
+					p.comment__spec ТОО “Hyundai Com Trans Kazakhstan”
+					a.comment__link(href='#') показать оригинал письма
+				.comment__item
+					p.comment__text ... Нам импонировала не только приемлемая ценовая политика, но и высокая культура общения Вашего персонала...
+					p.comment__author - Козыбахов А.К.,
+					p.comment__spec ТОО “Hyundai Com Trans Kazakhstan”
+					a.comment__link(href='#') показать оригинал письма
+
+	section.guarant
+		.container
+			h2.guarant__title Гарантии достоверности наших услуг
+			.guarant__row
+				.guarant__col
+					.guarant__item
+						.guarant__icon.icon.icon-guarant-1
+						h3.guarant__text Работаем с аккредитованными органами Казахстана, России и Таможенного Союза
+					.guarant__item
+						.guarant__icon.icon.icon-guarant-2
+						h3.guarant__text Вы получаете электронную версию документа сразу после его готовности
+				.guarant__col
+					img.guarant__img(src='img/content/guarant-cert.png' alt='image')
+				.guarant__col
+					.guarant__item
+						.guarant__icon.icon.icon-guarant-3
+						h3.guarant__text Вы сможете проверить документ в <a class='guarant__text-link' href='#'>базе данных</a> по его номеру
+					.guarant__item
+						.guarant__icon.icon.icon-guarant-4
+						h3.guarant__text Вернем деньги в случае неполучения (неоформления) сертификата по нашей вине
+

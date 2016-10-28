@@ -1,6 +1,8 @@
 $icons: (0:0)
-$icons: map-merge($icons,(bt-next: (X: 0px, Y:0px, W: 39px, H: 41px, TW: 82px, TH: 41px, IMG: '../img/icons.png')))
-$icons: map-merge($icons,(bt-prev: (X: -43px, Y:0px, W: 39px, H: 41px, TW: 82px, TH: 41px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(guarant-1: (X: 0px, Y:0px, W: 75px, H: 75px, TW: 154px, TH: 154px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(guarant-2: (X: -79px, Y:0px, W: 75px, H: 75px, TW: 154px, TH: 154px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(guarant-3: (X: 0px, Y:-79px, W: 75px, H: 75px, TW: 154px, TH: 154px, IMG: '../img/icons.png')))
+$icons: map-merge($icons,(guarant-4: (X: -79px, Y:-79px, W: 75px, H: 75px, TW: 154px, TH: 154px, IMG: '../img/icons.png')))
 
 
 // Gets an attribute from the sass map
@@ -26,7 +28,11 @@ $icons: map-merge($icons,(bt-prev: (X: -43px, Y:0px, W: 39px, H: 41px, TW: 82px,
 	background-position: $x/2 $y/2
 	$tw: icon-attr($iconName, TW) 	
 	$th: icon-attr($iconName, TH)
-	background-size: $tw/2 $th/2  	
+	background-size: $tw/2 $th/2
+@mixin sprite-position-retina($iconName)
+	$x: icon-attr($iconName, X)
+	$y: icon-attr($iconName, Y)
+	background-position: $x/2 $y/2
 
 
 @mixin s($i)
@@ -34,18 +40,31 @@ $icons: map-merge($icons,(bt-prev: (X: -43px, Y:0px, W: 39px, H: 41px, TW: 82px,
 @mixin sp($i)
 	+sprite-position($i)
 @mixin sr($i)
-	+sprite-retina($i)	
+	+sprite-retina($i)
+@mixin spr($i)
+	+sprite-position-retina($i)
 
-//
-//.icon-bt-next
-//	width: 39px
-//	height: 41px
-//	background-image: url('../img/icons.png')
-//	background-position: 0px 0px
-//
-//.icon-bt-prev
-//	width: 39px
-//	height: 41px
-//	background-image: url('../img/icons.png')
-//	background-position: -43px 0px
-//
+.icon-guarant-1
+	width: 75px
+	height: 75px
+	background-image: url('../img/icons.png')
+	background-position: 0px 0px
+	background-size: 154px 154px
+.icon-guarant-2
+	width: 75px
+	height: 75px
+	background-image: url('../img/icons.png')
+	background-position: -79px 0px
+	background-size: 154px 154px
+.icon-guarant-3
+	width: 75px
+	height: 75px
+	background-image: url('../img/icons.png')
+	background-position: 0px -79px
+	background-size: 154px 154px
+.icon-guarant-4
+	width: 75px
+	height: 75px
+	background-image: url('../img/icons.png')
+	background-position: -79px -79px
+	background-size: 154px 154px

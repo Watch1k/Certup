@@ -251,9 +251,56 @@ img
 	 Footer
 	 =================================== */
 .footer
-	margin-top: -40px
-	height: 40px
-
+	position: relative
+	z-index: 2
+	font-size: 18px
+	color: #ffffff
+	font-weight: 400
+	padding-top: 65px
+	padding-bottom: 15px
+	background: url(../img/bg/comment.jpg) center center no-repeat
+	background-size: cover
+	&__container
+		position: relative
+		z-index: 1
+		max-width: 1200px
+		padding-left: 90px
+		padding-right: 90px
+	&:before
+		content: ''
+		position: absolute
+		z-index: 2
+		pointer-events: none
+		top: 0
+		left: 0
+		bottom: 0
+		width: 50%
+		background: url(../img/bg/comment-left.png) center center no-repeat
+		background-size: cover
+	&:after
+		content: ''
+		position: absolute
+		z-index: 2
+		pointer-events: none
+		top: 0
+		right: 0
+		bottom: 0
+		width: 50%
+		background: url(../img/bg/comment-right.png) center center no-repeat
+		background-size: cover
+	&__title
+		font-size: 30px
+		font-weight: 500
+		text-align: center
+	&__subtitle
+		text-align: center
+	&__row
+		+pie-clearfix
+	&__col
+		float: left
+		width: 33.33%
+		height: 500px
+	
 
 /* ===================================
 	 Main
@@ -390,7 +437,7 @@ img
 	background: url(../img/bg/delivery.png) center bottom no-repeat
 	background-size: 100% auto
 	&__title
-		margin-bottom: 10px
+		margin-bottom: 2px
 		font-size: 30px
 		font-weight: 500
 		text-align: center
@@ -410,7 +457,7 @@ img
 	background: url(../img/bg/cert.png) center center no-repeat
 	background-size: cover
 	&__title
-		margin-bottom: 10px
+		margin-bottom: 2px
 		font-size: 30px
 		font-weight: 500
 		text-align: center
@@ -464,7 +511,7 @@ img
 	padding-top: 65px
 	padding-bottom: 65px
 	&__title
-		margin-bottom: 10px
+		margin-bottom: 2px
 		text-align: center
 		font-size: 30px
 		font-weight: 700
@@ -540,7 +587,7 @@ img
 	padding-bottom: 75px
 	background-color: #f9fbfd
 	&__title
-		margin-bottom: 10px
+		margin-bottom: 2px
 		font-size: 30px
 		font-weight: 500
 		text-align: center
@@ -548,8 +595,328 @@ img
 		margin-bottom: 20px
 		text-align: center
 
+/* Manager
+	----------------------------------- */
+.manager
+	display: table
+	margin-left: auto
+	margin-right: auto
+	width: 100%
+	max-width: 1200px
+	&__col
+		display: table-cell
+		vertical-align: top
+		&:nth-child(1),
+		&:nth-child(3)
+			padding-top: 45px
+			padding-bottom: 50px
+			width: 350px
+			background-color: white
+			text-align: center
+			border-radius: 8px
+			box-shadow: 0 0 7px rgba(103, 156, 210, 0.06)
+	&__img
+		margin-bottom: 10px
+	&__name
+		margin-bottom: 3px
+		font-size: 24px
+		font-weight: 500
+	&__phone
+		display: inline-block
+		vertical-align: middle
+		font-size: 22px
+		font-weight: 400
+		&-icon
+			display: inline-block
+			margin-right: 12px
+			vertical-align: middle
+			position: relative
+			top: -2px
+	&__mail
+		display: inline-block
+		vertical-align: middle
+		font-size: 18px
+		color: #2f9ce7
+		font-weight: 400
+		text-decoration: underline
+		&-icon
+			display: inline-block
+			margin-right: 12px
+			vertical-align: middle
+			position: relative
+			top: -2px
+	&__row
+		margin-bottom: 0
+		text-align: left
+		padding-left: 65px
+		& + &
+			margin-bottom: 15px
+	&__btn
+		padding-left: 0
+		padding-right: 0
+		width: 283px
+	&__list
+		padding-left: 20px
+		padding-right: 30px
+		&-item
+			margin-top: 35px
+			+pie-clearfix
+		&-icon
+			margin-top: 3px
+			margin-right: 14px
+			font-size: 0
+			float: left
+			.icon
+				font-size: 31px
+		&-text
+			overflow: hidden
+	
 
-
+/* ===================================
+	 FAQ
+	 =================================== */
+.faq
+	padding-top: 55px
+	padding-bottom: 90px
+	&__title
+		margin-bottom: 2px
+		font-size: 30px
+		font-weight: 500
+		text-align: center
+	&__subtitle
+		margin-bottom: 35px
+		text-align: center
+	&__row
+		max-width: 1200px
+		margin-left: auto
+		margin-right: auto
+		transition: all 1s
+		+pie-clearfix
+	&__list
+		margin-right: 40px
+		float: left
+		width: 420px
+		&-nav
+			position: relative
+			cursor: pointer
+			padding: 20px 8px 20px 18px
+			color: #383838
+			border: 1px solid #3f8eca
+			border-radius: 10px
+			background-color: #ffffff
+			+trs
+			& + &
+				margin-top: 25px
+			&:before
+				position: absolute
+				z-index: 0
+				left: 100%
+				top: 50%
+				margin-top: -9px
+				opacity: 0
+				+arr(12,18,#5caedd,r)
+				content: ''
+				+trs
+			&:after
+				position: absolute
+				z-index: -1
+				left: 100%
+				top: 50%
+				margin-top: -10px
+				opacity: 0
+				+arr(14,20,#3f8eca,r)
+				content: ''
+				+trs
+			&.is-active
+				z-index: 1
+				color: #ffffff
+				background-color: #5caedd
+				border: 1px solid #3f8eca
+				&:before,
+				&:after
+					opacity: 1
+	&__content
+		overflow: hidden
+		a
+			color: #2f9ce7
+			text-decoration: underline
+			+trs
+			&:hover
+				color: darken(#2f9ce7,20)
+				text-decoration: underline
+		p
+			margin-bottom: 20px
+		img
+			margin-bottom: 20px
+		&-row
+			+pie-clearfix
+		&-col50
+			float: left
+			width: 50%
+			& + &
+				padding-left: 40px
+		&-title
+			padding-left: 40px
+			font-size: 24px
+			font-weight: 700
+		&-icon
+			float: left
+			margin-right: 15px
+			margin-top: 3px
+		&-text
+			overflow: hidden
+			max-width: 270px
+			color: #383838
+		&-img-mod
+			margin-top: 50px
+		&-hor-row
+			color: #383838
+			+pie-clearfix
+			& + &
+				margin-top: 30px
+		&-hor-icon
+			margin-right: 10px
+		b
+			font-weight: 700
+		
+/* ===================================
+	 Comment
+	 =================================== */
+.comment
+	position: relative
+	z-index: 1
+	padding-top: 80px
+	padding-bottom: 105px
+	color: #ffffff
+	background: url(../img/bg/comment.jpg) center center no-repeat
+	background-size: cover
+	text-align: center
+	&__container
+		position: relative
+		z-index: 1
+	&:before
+		content: ''
+		position: absolute
+		z-index: 2
+		pointer-events: none
+		top: 0
+		left: 0
+		bottom: 0
+		width: 50%
+		background: url(../img/bg/comment-left.png) center center no-repeat
+		background-size: cover
+	&:after
+		content: ''
+		position: absolute
+		z-index: 2
+		pointer-events: none
+		top: 0
+		right: 0
+		bottom: 0
+		width: 50%
+		background: url(../img/bg/comment-right.png) center center no-repeat
+		background-size: cover
+	&__title
+		margin-bottom: 60px
+		font-size: 30px
+		font-weight: 500
+	&__row
+		margin-left: auto
+		margin-right: auto
+		font-size: 0
+		text-align: center
+	&__item
+		display: inline-block
+		width: 50%
+		padding-left: 85px
+		padding-right: 10px
+		max-width: 620px
+	&__text
+		position: relative
+		margin-bottom: 15px
+		font-size: 22px
+		line-height: 1.64
+		font-weight: 300
+		&:before
+			content: '“'
+			position: absolute
+			top: 0
+			margin-top: -30px
+			margin-right: -18px
+			right: 100%
+			opacity: 0.19
+			font-family: 'Gotham Pro'
+			font-size: 154px
+			font-weight: 900
+			line-height: 1
+	&__author
+		font-size: 18px
+		font-weight: 700
+	&__spec
+		margin-bottom: 5px
+		font-size: 14px
+	&__link
+		font-size: 20px
+		color: #3fa3e1
+		font-weight: 300
+		line-height: 1.8
+		text-decoration: underline
+		+trs
+		&:hover
+			color: lighten(#3fa3e1,20)
+			text-decoration: underline
+		
+/* ===================================
+	 Guarant
+	 =================================== */
+.guarant
+	padding-top: 75px
+	padding-bottom: 50px
+	background: url(../img/bg/guarant.png) bottom left repeat-x
+	&__title
+		margin-bottom: 60px
+		font-size: 30px
+		font-weight: 500
+		text-align: center
+	&__row
+		display: table
+		table-layout: fixed
+		margin-left: auto
+		margin-right: auto
+		width: 100%
+		max-width: 1220px
+	&__col
+		width: 50%
+		display: table-cell
+		vertical-align: middle
+		&:nth-child(2)
+			width: 400px
+	&__item
+		+pie-clearfix
+		& + &
+			margin-top: 75px
+	&__icon
+		float: left
+		margin-right: 14px
+	&__text
+		overflow: hidden
+		font-size: 20px
+		font-weight: 300
+		&-link
+			color: #44a5e1
+			text-decoration: underline
+			+trs
+			&:hover
+				color: darken(#44a5e1,20)
+				text-decoration: underline
+	&__img
+		width: auto
+		max-width: none
+		height: auto
+				
+		
+		
+		
 
 /* ===================================
 	 Other Styles
