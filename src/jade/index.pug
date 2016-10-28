@@ -2,7 +2,7 @@ extend includes/_layout
 block title
 	title Certup
 block content
-	.start
+	section.start
 		.container
 			.start__col
 				h2.start__title Поможем <span class='start__title-line'>быстро</span> и <span class='start__title-line'>недорого</span> оформить сертификаты качества и декларации соответствия!
@@ -11,9 +11,9 @@ block content
 			.start__col
 				img.start__img(src='img/content/cert-start.png' alt='image')
 
-	.code
+	section.code
 		.container
-			p.code__title Не нашли нужный сертификат? Введите код ТН ВЭД и получите расчет стоимости
+			h3.code__title Не нашли нужный сертификат? Введите код ТН ВЭД и получите расчет стоимости
 			form.code__form(action='#')
 				.code__form-field
 					input.code__form-input(type='text' placeholder='Код ТН ВЭД')
@@ -22,7 +22,7 @@ block content
 				.code__form-field
 					button.btn.btn_blue.btn_sm(type='submit') рассчитать стоимость
 
-	.econom
+	section.econom
 		.container
 			h2.econom__title Работая с нами, Вы сэкономите время и не ошибетесь в выборе документов
 			.econom__row
@@ -42,7 +42,28 @@ block content
 					h3.econom__desc комплексный подход
 					p.econom__text Гибкие условия при заказе сертификатов для разнородных товаров
 
-	.bonus
+	section.bonus
 		.container
 			h2.bonus__title Приятный бонус - бесплатная доставка!
 			p.bonus__subtitle Бесплатно доставляем сертификаты по всему Казахстану
+
+	section.cert
+		.container
+			h2.cert__title Как получить сертификат?
+			p.cert__subtitle Оформим всего в 3 этапа
+			ul.cert__list
+				li.cert__list-item
+					.cert__list-icon
+					.cert__list-content
+						h3.cert__list-title Оформление заявки
+						p.cert__list-text Указываете свои контакты на сайте и наш менеджер связывается с Вами для уточнения запроса
+				li.cert__list-item
+					.cert__list-icon
+					.cert__list-content
+						h3.cert__list-title изготовление документа
+						p.cert__list-text Мы оформляем для Вас соответствующий разрешительный документ
+				li.cert__list-item
+					.cert__list-icon
+					.cert__list-content
+						h3.cert__list-title получение заказа
+						p.cert__list-text Сразу после изготовления Вам направляется скан-копия документа, оригинал отправляется по почте
