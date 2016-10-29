@@ -418,24 +418,25 @@ block content
 			p.discount__subtitle Выберите, сколько сертификатов хотите заказать - и удивитесь, насколько больше становится ваша скидка!
 			.circle
 				.circle__main
-					svg#Layer_1.circle__svg(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='439px', height='439px', viewbox='0 0 200 200', enable-background='new 0 0 200 200', xml:space='preserve')
+					svg.circle__svg.js-circle(version='1.1', xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', x='0px', y='0px', width='439px', height='439px', viewbox='0 0 200 200', enable-background='new 0 0 200 200', xml:space='preserve')
 						path.path(fill='none', stroke='#42a4e1', stroke-width='3', stroke-miterlimit='10', d='M100.416,2.001C154.35,2.225,198,46.015,198,100\c0,54.124-43.876,98-98,98S2,154.124,2,100S45.876,2,100,2')
-					| -&nbsp;
-					.circle__main-number 10
-					| %
-					.circle__info.circle__info_1
+					.circle__main-text
+						| -
+						.circle__main-number.js-circle-value 10
+						| %
+					.circle__info.circle__info_1.is-active.js-circle-number(data-index='1')
 						.circle__info-number 1
 						.circle__info-text сертификат
-					.circle__info.circle__info_2
+					.circle__info.circle__info_2.js-circle-number(data-index='2')
 						.circle__info-number 2
 						.circle__info-text сертификата
-					.circle__info.circle__info_3
+					.circle__info.circle__info_3.js-circle-number(data-index='3')
 						.circle__info-number 3
 						.circle__info-text сертификата
-					.circle__info.circle__info_4
+					.circle__info.circle__info_4.js-circle-number(data-index='4')
 						.circle__info-number 4
 						.circle__info-text сертификата
-					.circle__info.circle__info_5
+					.circle__info.circle__info_5.js-circle-number(data-index='5')
 						.circle__info-number 5
 						.circle__info-text сертификатов
 			p.discount__info *Акция действительна до 30 ноября 2016 года

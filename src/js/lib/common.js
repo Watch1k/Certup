@@ -79,51 +79,36 @@ $(document).ready(function () {
 	})();
 
 	(function () {
-		var path = $('svg').find('path');
-		var pathLength = path[0].getTotalLength();
-		var speed = 1.5;
-		var percent = 0.60;
+		var circle = $('.js-circle'),
+			value = $('.js-circle-value'),
+			number = $('.js-circle-number');
 
-		path.css({
-			'stroke-dasharray': pathLength + ' ' + pathLength,
-			'stroke-dashoffset': pathLength
+		number.on('click', function () {
+			var numberIndex = $(this).data('index');
+
+			$(this).addClass('is-active');
+
+			switch (numberIndex) {
+				case 1:
+					circle.animate({'stroke-dashoffset': '550'}, 500);
+					break;
+				case 2:
+					circle.animate({'stroke-dashoffset': '405'}, 500);
+					break;
+				case 3:
+					circle.animate({'stroke-dashoffset': '310'}, 500);
+					break;
+				case 4:
+					circle.animate({'stroke-dashoffset': '220'}, 500);
+					break;
+				case 5:
+					circle.animate({'stroke-dashoffset': '80'}, 500);
+					break;
+				default:
+					circle.animate({'stroke-dashoffset': '550'}, 500);
+			}
 		});
 
-		if (!isIE()) {
-			$('.path').velocity({
-				'stroke-dashoffset': pathLength * (1 - percent)
-			}, {
-				duration: speed * 1000,
-				progress: function () {
-					var percentText = 100 - Math.round(parseFloat($(this).css('stroke-dashoffset')) / pathLength * 100);
-					$('.figure p').html(percentText + '%');
-				}
-			});
-		} else {
-			var currentPathLength = pathLength;
-			var requestAnimationFrameID = requestAnimationFrame(doAnim);
-
-			function doAnim() {
-				if (currentPathLength <= pathLength * (1 - percent)) {
-					cancelAnimationFrame(requestAnimationFrameID);
-					return;
-				}
-
-				var percentText = 100 - Math.round(parseFloat(currentPathLength) / pathLength * 100);
-				$('.figure p').html(percentText + '%');
-
-				$('.path').css({
-					'stroke-dashoffset': currentPathLength
-				});
-				currentPathLength -= 2;
-				requestAnimationFrameID = requestAnimationFrame(doAnim);
-			}
-		}
-
-		function isIE(userAgent) {
-			userAgent = userAgent || navigator.userAgent;
-			return userAgent.indexOf("MSIE ") > -1 || userAgent.indexOf("Trident/") > -1;
-		}
 	})();
 
 });
