@@ -1164,6 +1164,92 @@ img
 	.slick-next
 		right: -30px
 		
+/* ===================================
+	 Circle
+	 =================================== */
+.circle
+	margin-top: 60px
+	&__main
+		position: relative
+		margin-left: auto
+		margin-right: auto
+		width: 433px
+		height: 433px
+		display: flex
+		align-items: center
+		justify-content: center
+		font-size: 72px
+		color: #3a3a3a
+		font-weight: 900
+		line-height: 0.42
+		border: 3px dotted #959595
+		border-radius: 50%
+		&:before
+			content: ''
+			position: absolute
+			top: 20px
+			left: 20px
+			right: 20px
+			bottom: 20px
+			z-index: 1
+			border: 3px solid #a1a1a1
+			border-radius: 50%
+			pointer-events: none
+	&__info
+		position: absolute
+		z-index: 10
+		cursor: pointer
+		&-number
+			margin-bottom: 5px
+			height: 34px
+			font-size: 48px
+			color: #a1a1a1
+			font-weight: 900
+			text-align: center
+			+trs
+		&-text
+			font-size: 20px
+			color: #a1a1a1
+			font-weight: 500
+			+trs
+		&:before
+			content: ''
+			position: absolute
+			width: 20px
+			height: 20px
+			background-color: #a1a1a1
+			border-radius: 50%
+			+trs
+		&_1
+			top: 0
+			right: -25%
+			&:before
+				left: -50%
+				bottom: -37%
+		&_2
+			top: 0
+			left: -25%
+			&:before
+				right: -50%
+				bottom: -37%
+		&_3
+			bottom: 20%
+			left: -30%
+			&:before
+		&_4
+			bottom: 20%
+			right: -30%
+			&:before
+		&_5
+			bottom: -20%
+			left: 50%
+			transform: translateX(-50%)
+			&:before
+		&:hover &-number,
+		&:hover &-text
+			color: #42a4e1
+		&:hover:before
+			background-color: #42a4e1
 		
 
 /* ===================================
