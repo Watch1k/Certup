@@ -70,7 +70,7 @@ $default-fonts: Arial, sans-serif
 // $black: #000
 
 =trs
-	transition: all 0.2s
+	transition: all 0.25s
 
 
 /* ===================================
@@ -257,15 +257,14 @@ img
 	color: #ffffff
 	font-weight: 400
 	padding-top: 65px
-	padding-bottom: 15px
 	background: url(../img/bg/comment.jpg) center center no-repeat
 	background-size: cover
 	&__container
 		position: relative
-		z-index: 1
+		z-index: 3
 		max-width: 1200px
 		padding-left: 90px
-		padding-right: 90px
+		padding-right: 115px
 	&:before
 		content: ''
 		position: absolute
@@ -299,8 +298,93 @@ img
 	&__col
 		float: left
 		width: 33.33%
-		height: 500px
-	
+		&:last-child
+			float: right
+			width: 257px
+		&-title
+			margin-top: -17px
+			margin-bottom: 3px
+			font-size: 14px
+			font-weight: 500
+			line-height: 1.71
+		&-subtitle
+			margin-bottom: 12px
+			font-size: 14px
+			font-weight: 400
+			line-height: 1.57
+	&__logo
+		margin-top: 10px
+		margin-bottom: 5px
+		font-size: 45px
+		color: #ffffff
+		.logo__link-text
+			margin-top: -8px
+			font-size: 10px
+			color: #ffffff
+			letter-spacing: 0
+	&__address
+		font-size: 18px
+		line-height: 1.67
+		font-weight: 400
+	&__link
+		display: block
+		margin-top: 2px
+		font-size: 18px
+		color: #2f9ce7
+		text-decoration: underline
+		+trs
+		&:hover
+			color: lighten(#2f9ce7,10)
+			text-decoration: underline
+	&__nav
+		margin-top: 50px
+		padding-left: 80px
+		&-link
+			display: block
+			font-size: 18px
+			font-weight: 400
+			line-height: 1.67
+			+trs
+			&:hover
+				color: #2f9ce7
+	&__form
+		&-field
+			+pie-clearfix
+			& + &
+				margin-top: 15px
+		&-input
+			padding-left: 15px
+			padding-right: 15px
+			width: 100%
+			height: 50px
+			font-size: 16px
+			color: inherit
+			line-height: 50px
+			border: 1px solid #b9b9b9
+			border-radius: 9px
+			background-color: transparent
+			+placeholder-color(#c6c6c6)
+		&-submit
+			width: 100%
+			border-radius: 6px
+	&__bot
+		padding-top: 15px
+		padding-bottom: 15px
+		margin-top: 50px
+		font-size: 14px
+		font-weight: 400
+		border-top: 1px solid rgba(255,255,255,.39)
+		+pie-clearfix
+		&-left
+			float: left
+		&-right
+			float: right
+		&-link
+			color: #2f9ce7
+			+trs
+			&:hover
+				color: lighten(#2f9ce7,20)
+		
 
 /* ===================================
 	 Main
