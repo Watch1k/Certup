@@ -443,7 +443,7 @@ img
 	 =================================== */
 .code
 	padding-top: 35px
-	padding-bottom: 43px
+	padding-bottom: 23px
 	&__title
 		margin-bottom: 10px
 		text-align: center
@@ -454,6 +454,7 @@ img
 		font-size: 0
 		+pie-clearfix
 		&-field
+			margin-bottom: 20px
 			font-size: 16px
 			display: inline-block
 			width: 456px
@@ -581,8 +582,12 @@ img
 				top: 100%
 				margin-top: 3px
 				width: 1px
-				height: 120px
+				height: 0
 				border-left: 1px dashed white
+				transition: all 2.5s
+		&-item[style*='visibility: visible'] &-icon
+			&:after
+				height: 120px
 		&-item:last-child &-icon
 			&:after
 				content: none
@@ -839,6 +844,11 @@ img
 					opacity: 1
 	&__content
 		overflow: hidden
+		&-item
+			&:nth-child(2)
+				a
+					display: inline-block
+					vertical-align: middle
 		a
 			color: #2f9ce7
 			text-decoration: underline
@@ -1170,14 +1180,24 @@ img
 		margin-top: 100px
 		+vertical
 		+trs
+		+r(1640)
+			margin-top: 80px
 		&.slick-disabled
 			opacity: 0.25
 		&:hover
 			color: #44a5e1
+		.icon
+			+r(1640)
+				font-size: 60px
 	.slick-prev
 		left: -30px
+		+r(1640)
+			left: 40px
 	.slick-next
 		right: -30px
+		+r(1640)
+			right: 40px
+		
 		
 /* ===================================
 	 Circle
@@ -1200,7 +1220,13 @@ img
 			white-space: nowrap
 			+vcenter
 		&-number
-			display: inline
+			position: relative
+			left: -5px
+			display: inline-block
+			min-width: 140px
+			text-align: center
+			vertical-align: middle
+			animation: animate-number 1s infinite alternate
 		&:after
 			content: ''
 			position: absolute
@@ -1415,3 +1441,8 @@ img
 		padding-right: 0
 		width: 100%
 		
+@keyframes animate-number
+	0%
+		transform: scale(0.95)
+	100%
+		transform: scale(1.15)

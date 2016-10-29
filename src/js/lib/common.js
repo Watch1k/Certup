@@ -10,7 +10,30 @@ $(document).ready(function () {
 	//init Modals
 	initModals();
 	//init AjaxForm
-	// initAjaxForm();
+	initAjaxForm();
+
+	new WOW().init();
+
+	//scroll to section
+	$('a[href^="#"]').on('click', function(e){
+		e.preventDefault();
+		var el = $(this).attr('href');
+		$('html, body').animate({scrollTop: $(el).offset().top}, 2000);
+		return false;
+	});
+
+	// change active faq by click link
+	if ($('.js-scroll-base').length) {
+		$('.js-scroll-base').on('click', function () {
+			$('.faq__list-nav').removeClass('is-active').eq(1).addClass('is-active');
+			$('.faq__content-item').filter('.is-active').fadeOut().promise().done(function () {
+				$('.faq__content-item').eq(1).fadeIn().addClass('is-active');
+			});
+			setTimeout(function () {
+				$('.faq__content-item').eq(1).find('a').addClass('animated').addClass('shake');
+			},2200);
+		});
+	}
 
 	//image Popup
 	$('.js-image').magnificPopup({
@@ -67,7 +90,16 @@ $(document).ready(function () {
 			slidesToShow: 4,
 			slidesToScroll: 4,
 			prevArrow: '<button type="button" class="slick-prev"><svg class="icon icon-arrow-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-arrow-left"></use></svg></button>',
-			nextArrow: '<button type="button" class="slick-next"><svg class="icon icon-arrow-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-arrow-right"></use></svg></button>'
+			nextArrow: '<button type="button" class="slick-next"><svg class="icon icon-arrow-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-arrow-right"></use></svg></button>',
+			responsive: [
+				{
+					breakpoint: 1200,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 3
+					}
+				}
+			]
 		});
 	})();
 
@@ -204,10 +236,8 @@ $(document).ready(function () {
 			$.post('mail.php', post_data, function(response){
 				if (response.type == 'error'){
 					// your code here
-					console.log('error !!!');
 				} else {
 					// your code here
-					console.log('fine');
 				}
 			}, 'json');
 		});
@@ -230,8 +260,6 @@ $(document).ready(function () {
 					var userPrice = _thisBtn.parent().find('.js-price').text();
 					$('.modal').find('form').append('<input type="text" class="is-hidden" name="user_price" value="' + userPrice + '">');
 				}
-				console.log(userTopic);
-				console.log(userPrice);
 				$('.modal').fadeIn();
 				initMask();
 				initValidation();
