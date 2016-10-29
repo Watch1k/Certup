@@ -81,20 +81,39 @@ $(document).ready(function () {
 	(function () {
 		var circle = $('.js-circle'),
 			value = $('.js-circle-value'),
-			number = $('.js-circle-number');
+			number = $('.js-circle-number'),
+			select = $('.js-circle-select'),
+			option = select.children();
+
+		select.on('change', function () {
+			var selectIndex = $(this).prop('selectedIndex') + 1;
+
+			changeNumber(selectIndex);
+			switchSelectCircle(selectIndex)
+		});
 
 		number.on('click', function () {
 			var numberIndex = $(this).data('index');
 
+			option.eq(numberIndex - 1).prop('selected', true);
+
+			changeNumber(numberIndex);
+
+			switchSelectCircle(numberIndex);
+		});
+
+		function changeNumber(index) {
 			number.each(function () {
-				if ($(this).data('index') > numberIndex) {
+				if ($(this).data('index') > index) {
 					$(this).removeClass('is-active');
 				} else {
 					$(this).addClass('is-active');
 				}
 			});
+		}
 
-			switch (numberIndex) {
+		function switchSelectCircle(value) {
+			switch (value) {
 				case 1:
 					circle.animate({'stroke-dashoffset': '550'}, 500);
 					break;
@@ -113,7 +132,7 @@ $(document).ready(function () {
 				default:
 					circle.animate({'stroke-dashoffset': '550'}, 500);
 			}
-		});
+		}
 
 	})();
 
