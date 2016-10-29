@@ -432,6 +432,9 @@ img
 		margin-top: -65px
 		max-width: none
 		width: calc(100% + 160px)
+	&__btn
+		margin-bottom: 50px
+		
 		
 /* ===================================
 	 Code
@@ -1040,11 +1043,19 @@ img
 	 El
 	 =================================== */
 .el
+	padding-bottom: 30px
+	background: url(../img/bg/el.png) center bottom repeat-x
 	&__slider
 		max-width: 1600px
 		position: relative
 		
 .slider
+	&_center
+		.slick-track
+			left: 0
+			right: 0
+			margin-left: auto
+			margin-right: auto
 	&__item
 		position: relative
 		padding-top: 140px
@@ -1109,6 +1120,8 @@ img
 		line-height: 20px
 		font-weight: 500
 	&__text4
+		margin-bottom: 10px
+		white-space: nowrap
 		font-size: 18px
 		color: #262525
 		font-weight: 300
@@ -1139,6 +1152,11 @@ img
 		top: 50%
 		margin-top: 100px
 		+vertical
+		+trs
+		&.slick-disabled
+			opacity: 0.25
+		&:hover
+			color: #44a5e1
 	.slick-prev
 		left: -30px
 	.slick-next
