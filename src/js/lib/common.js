@@ -86,7 +86,13 @@ $(document).ready(function () {
 		number.on('click', function () {
 			var numberIndex = $(this).data('index');
 
-			$(this).addClass('is-active');
+			number.each(function () {
+				if ($(this).data('index') > numberIndex) {
+					$(this).removeClass('is-active');
+				} else {
+					$(this).addClass('is-active');
+				}
+			});
 
 			switch (numberIndex) {
 				case 1:
