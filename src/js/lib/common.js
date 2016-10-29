@@ -4,17 +4,17 @@ $(document).ready(function () {
 	//for IE9
 	svg4everybody();
 
-	// Clear placeholder
-	(function () {
-		var el = $('input, textarea');
-		el.focus(function () {
-			$(this).data('placeholder', $(this).attr('placeholder'));
-			$(this).attr('placeholder', '');
-		});
-		el.blur(function () {
-			$(this).attr('placeholder', $(this).data('placeholder'));
-		});
-	}());
+	//phone Mask
+	initMask();
+
+	//init validation
+	// initValidation();
+
+	//init Modals
+	initModals();
+
+	//add init modals class
+
 
 	(function () {
 		var tabs = $('.js-tabs');
@@ -164,7 +164,95 @@ $(document).ready(function () {
 					circle.animate({'stroke-dashoffset': '550'}, 500);
 			}
 		}
-
 	})();
+
+	// Clear placeholder
+	(function () {
+		var el = $('input, textarea');
+		el.focus(function () {
+			$(this).data('placeholder', $(this).attr('placeholder'));
+			$(this).attr('placeholder', '');
+		});
+		el.blur(function () {
+			$(this).attr('placeholder', $(this).data('placeholder'));
+		});
+	}());
+
+	function initModals() {
+		var modalBtn = $('.js-init-modal');
+		modalBtn.on('click', function (e) {
+			e.preventDefault();
+			var ref = $(this).data('href');
+			$('body').addClass('is-locked');
+			$.get('modals/' + ref + '.html', function (data) {
+				$('body').append('<div class="modal js-modal">' + data + '</div>');
+				$('.modal').fadeIn();
+				initMask();
+				initValidation();
+				initModalClose();
+			});
+		});
+	}
+
+	function initModalClose() {
+		var modal = $('.js-modal'),
+			closeBtn = $('.js-modal-close');
+
+		closeBtn.on('click', function (e) {
+			e.preventDefault();
+			$(this).closest(modal).fadeOut(function () {
+				$('body').removeClass('is-locked');
+				$(this).remove();
+			});
+		});
+
+		modal.on('click', function (e) {
+			if (!$(this).is(e.target)) return false;
+			$(this).fadeOut(function () {
+				$('body').removeClass('is-locked');
+				$(this).remove();
+			});
+		});
+	}
+
+	function initMask(){
+		var phoneInput = $(".js-phone-mask");
+
+		phoneInput.mask("+9(999)999-99-99");
+
+		//SET CURSOR POSITION
+		$.fn.setCursorPosition = function(pos) {
+			this.each(function(index, elem) {
+				if (elem.setSelectionRange) {
+					elem.setSelectionRange(pos, pos);
+				} else if (elem.createTextRange) {
+					var range = elem.createTextRange();
+					range.collapse(true);
+					range.moveEnd('character', pos);
+					range.moveStart('character', pos);
+					range.select();
+				}
+			});
+			return this;
+		};
+
+		phoneInput.on('focus', function(){
+			var _this = $(this);
+
+			setTimeout(function() {
+				_this.setCursorPosition(1);
+			},100);
+		});
+	}
+
+	function initValidation() {
+		$.validate({
+			validateOnBlur : true,
+			showHelpOnFocus : false,
+			addSuggestions : false,
+			scrollToTopOnError: false,
+			borderColorOnError : '#FF0000'
+		});
+	}
 
 });

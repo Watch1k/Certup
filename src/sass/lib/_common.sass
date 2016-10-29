@@ -84,6 +84,8 @@ body
 	color: #262525
 	font-weight: 300
 	line-height: 1.5
+	&.is-locked
+		overflow: hidden
 
 .wrapper
 	position: relative
@@ -657,9 +659,6 @@ img
 			border: 1px solid #bababa
 			border-radius: 6px
 			background-color: transparent
-			&::-ms-value
-				background-color: #ffffff
-				color: #262525
 		&-input
 			padding-left: 15px
 			padding-right: 15px
@@ -1296,7 +1295,90 @@ img
 			background-color: #42a4e1
 		
 
+
 /* ===================================
 	 Other Styles
 	 =================================== */
-
+.help-block
+	display: none !important
+	
+/* Modal
+	----------------------------------- */
+.modal
+	display: none
+	position: fixed
+	z-index: 101
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	height: 100%
+	width: 100%
+	overflow: auto
+	padding: 20px
+	font-family: 'Gotham Pro', $default-fonts
+	font-size: 16px
+	font-weight: 300
+	color: #262525
+	background-color: rgba(17, 17, 17, .78)
+	+vertical
+	&__in
+		overflow: hidden
+		position: relative
+		display: inline-block
+		padding-top: 70px
+		padding-bottom: 60px
+		min-width: 427px
+		vertical-align: middle
+		background-color: #ffffff
+		border-radius: 9px
+		+r(479)
+			min-width: 0
+			padding-left: 10px
+			padding-right: 10px
+	&__close
+		cursor: pointer
+		position: absolute
+		top: 20px
+		right: 20px
+		z-index: 1
+		font-size: 0
+		color: #4c4f60
+		.icon
+			font-size: 18px
+	&__img
+		margin-bottom: 20px
+		display: block
+		margin-left: auto
+		margin-right: auto
+	&__text
+		margin-bottom: 20px
+	&__form
+		margin-left: auto
+		margin-right: auto
+		width: 260px
+		
+/* Form
+	----------------------------------- */
+.form
+	&__field
+		+pie-clearfix
+		& + &
+			margin-top: 15px
+	&__input
+		padding-left: 15px
+		padding-right: 15px
+		width: 100%
+		height: 50px
+		font-size: 16px
+		color: inherit
+		line-height: 50px
+		border: 1px solid #bababa
+		border-radius: 5px
+		background-color: transparent
+		+placeholder-color(#bababa)
+	&__submit
+		padding-left: 0
+		padding-right: 0
+		width: 100%
+		
