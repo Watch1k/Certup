@@ -84,16 +84,18 @@ $(document).ready(function () {
 			number = $('.js-circle-number'),
 			select = $('.js-circle-select'),
 			option = select.children(),
-			numberText = 0;
+			numberText = 0,
+			currentNumber = 0;
 
 		select.on('change', function () {
 			var selectIndex = $(this).prop('selectedIndex') + 1;
 
+			currentNumber = parseInt(value.text());
 			numberText = number.filter(function () {
 				return $(this).data('index') == selectIndex;
 			}).attr('data-value');
-			value.text(numberText);
 
+			animateValue(currentNumber, numberText);
 			changeNumber(selectIndex);
 			switchSelectCircle(selectIndex)
 		});
@@ -101,6 +103,7 @@ $(document).ready(function () {
 		number.on('click', function () {
 			var numberIndex = $(this).data('index');
 
+			currentNumber = parseInt(value.text());
 			numberText = number.filter(function () {
 				return $(this).data('index') == numberIndex;
 			}).attr('data-value');
@@ -108,9 +111,27 @@ $(document).ready(function () {
 
 			option.eq(numberIndex - 1).prop('selected', true);
 
+			animateValue(currentNumber, numberText);
 			changeNumber(numberIndex);
 			switchSelectCircle(numberIndex);
 		});
+
+		function animateValue(start, stop) {
+			value.each(function () {
+				var _this = $(this);
+				$({Counter: start}).animate({Counter: stop}, {
+					duration: 500,
+					easing: 'swing',
+					step: function () {
+						if (start <= stop) {
+							_this.text(Math.ceil(this.Counter));
+						} else {
+							_this.text(Math.floor(this.Counter));
+						}
+					}
+				});
+			});
+		}
 
 		function changeNumber(index) {
 			number.each(function () {
