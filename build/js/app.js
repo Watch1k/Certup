@@ -102,7 +102,7 @@ $(document).ready(function () {
 	//init Modals
 	initModals();
 	//init AjaxForm
-	initAjaxForm();
+	// initAjaxForm();
 
 	//image Popup
 	$('.js-image').magnificPopup({
@@ -186,6 +186,7 @@ $(document).ready(function () {
 			number = $('.js-circle-number'),
 			select = $('.js-circle-select'),
 			option = select.children(),
+			percentInp = $('.js-form-percent'),
 			numberText = 0,
 			currentNumber = 0;
 
@@ -196,6 +197,7 @@ $(document).ready(function () {
 			numberText = number.filter(function () {
 				return $(this).data('index') == selectIndex;
 			}).attr('data-value');
+			percentInp.val(numberText);
 
 			animateValue(currentNumber, numberText);
 			changeNumber(selectIndex);
@@ -210,6 +212,7 @@ $(document).ready(function () {
 				return $(this).data('index') == numberIndex;
 			}).attr('data-value');
 			value.text(numberText);
+			percentInp.val(numberText);
 
 			option.eq(numberIndex - 1).prop('selected', true);
 
@@ -293,8 +296,10 @@ $(document).ready(function () {
 			$.post('mail.php', post_data, function(response){
 				if (response.type == 'error'){
 					// your code here
+					console.log('error !!!');
 				} else {
 					// your code here
+					console.log('fine');
 				}
 			}, 'json');
 		});
@@ -310,8 +315,15 @@ $(document).ready(function () {
 			$.get('modals/' + ref + '.html', function (data) {
 				$('body').append('<div class="modal js-modal">' + data + '</div>');
 				if (_thisBtn.attr('data-topic')) {
-					$('.modal').find('form').append('<input type="text" class="is-hidden" name="user_topic">');
+					var userTopic = _thisBtn.data('topic');
+					$('.modal').find('form').append('<input type="text" class="is-hidden" name="user_topic" value="' + userTopic + '">');
 				}
+				if (_thisBtn.attr('data-price')) {
+					var userPrice = _thisBtn.parent().find('.js-price').text();
+					$('.modal').find('form').append('<input type="text" class="is-hidden" name="user_price" value="' + userPrice + '">');
+				}
+				console.log(userTopic);
+				console.log(userPrice);
 				$('.modal').fadeIn();
 				initMask();
 				initValidation();

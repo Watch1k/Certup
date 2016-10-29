@@ -13,9 +13,9 @@ if ($_POST) {
         } 
         
         //Sanitize input data using PHP filter_var().
+        $user_name = filter_var($_POST["user_name"], FILTER_SANITIZE_STRING);
+        $user_phone = filter_var($_POST["user_phone"], FILTER_SANITIZE_STRING);
         $user_topic = filter_var($_POST["user_topic"], FILTER_SANITIZE_STRING);
-        $user_email = filter_var($_POST["user_name"], FILTER_SANITIZE_STRING);
-        $user_email = filter_var($_POST["user_phone"], FILTER_SANITIZE_STRING);
 
         // subject
         $subject = $user_topic;
@@ -25,7 +25,7 @@ if ($_POST) {
 
         //proceed with PHP email.
         $headers = 'From: '.$user_topic.'' . "\r\n" .
-        'Reply-To: '.$user_email.'' . "\r\n" .
+        'Reply-To: '.$to_email.'' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
         
         $send_mail = mail($to_email, $subject, $message_body, $headers);
