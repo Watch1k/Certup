@@ -1,0 +1,9 @@
+include ../includes/_mixins
+
+.modal__in
+	.modal__close.js-modal-close
+		+i('close')
+	img.modal__img(src='../img/content/modal-ty.jpg' alt='image')
+	p.modal__text-bold Спасибо!
+	p.modal__text Ваша заяка принята, мы перезвоним Вам в течение 3 минут.
+	button.modal__ok.btn.btn_blue.js-modal-close(type='button') ОК

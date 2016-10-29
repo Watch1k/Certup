@@ -5,12 +5,12 @@
     </svg>
   </div><img class="modal__img" src="../img/content/modal-call.jpg" alt="image" />
   <p class="modal__text">Пожалуйста, укажите свои контакты и мы свяжемся с Вами в течение 3 минут</p>
-  <form class="modal__form form" action="#">
+  <form class="modal__form form" action="../index.html" method="get">
     <div class="form__field">
-      <input class="form__input" type="text" placeholder="Имя" data-validation="required" />
+      <input class="form__input" type="text" placeholder="Имя" name="user_name" data-validation="required" />
     </div>
     <div class="form__field">
-      <input class="form__input js-phone-mask" type="text" placeholder="Номер телефона" data-validation="required" />
+      <input class="form__input js-phone-mask" type="text" name="user_phone" placeholder="Номер телефона" data-validation="required" />
     </div>
     <div class="form__field">
       <button class="form__submit btn btn_blue" type="submit">заказать звонок</button>

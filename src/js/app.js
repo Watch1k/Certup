@@ -3,4 +3,5 @@
 //=include lib/slick.min.js
 //=include lib/jquery.maskedinput.min.js
 //=include lib/jquery.form-validator.min.js
+//=include lib/jquery.magnific-popup.min.js
 //=include lib/common.js

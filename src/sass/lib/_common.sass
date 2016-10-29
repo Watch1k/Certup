@@ -1302,10 +1302,23 @@ img
 .help-block
 	display: none !important
 	
+.mfp-wrap
+	.mfp-content
+		margin-top: 40px
+	img.mfp-img
+		padding-top: 0
+	button.mfp-close
+		top: -25px
+		right: -25px
+		cursor: pointer!important
+		opacity: 1
+		+s('close')
+	
 /* Modal
 	----------------------------------- */
 .modal
 	display: none
+	cursor: pointer
 	position: fixed
 	z-index: 101
 	top: 0
@@ -1323,12 +1336,14 @@ img
 	background-color: rgba(17, 17, 17, .78)
 	+vertical
 	&__in
+		cursor: default
 		overflow: hidden
 		position: relative
 		display: inline-block
 		padding-top: 70px
 		padding-bottom: 60px
 		min-width: 427px
+		font-size: 16px
 		vertical-align: middle
 		background-color: #ffffff
 		border-radius: 9px
@@ -1353,10 +1368,28 @@ img
 		margin-right: auto
 	&__text
 		margin-bottom: 20px
+		text-align: center
+		padding-left: 10px
+		padding-right: 10px
+		max-width: 340px
+		margin-left: auto
+		margin-right: auto
+		&-bold
+			max-width: 340px
+			padding-left: 10px
+			padding-right: 10px
+			margin-left: auto
+			margin-right: auto
+			margin-top: 10px
+			font-weight: 700
 	&__form
 		margin-left: auto
 		margin-right: auto
 		width: 260px
+	&__ok
+		width: 120px
+		margin-left: auto
+		margin-right: auto
 		
 /* Form
 	----------------------------------- */

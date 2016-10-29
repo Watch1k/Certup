@@ -1,0 +1,14 @@
+include ../includes/_mixins
+
+.modal__in
+	.modal__close.js-modal-close
+		+i('close')
+	img.modal__img(src='../img/content/manager-1.png' alt='image')
+	p.modal__text Пожалуйста, укажите Ваши данные. Жасулан перезвонит Вам в течение <br>3 минут.
+	form.modal__form.form(action='../index.html' method='get')
+		.form__field
+			input.form__input(type='text' placeholder='Имя' data-validation='required')
+		.form__field
+			input.form__input.js-phone-mask(type='text' placeholder='Номер телефона' data-validation='required')
+		.form__field
+			button.form__submit.btn.btn_blue(type='submit') заказать звонок

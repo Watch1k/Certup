@@ -3,17 +3,27 @@ $(document).ready(function () {
 
 	//for IE9
 	svg4everybody();
-
 	//phone Mask
 	initMask();
-
 	//init validation
-	// initValidation();
-
+	initValidation();
 	//init Modals
 	initModals();
+	//init AjaxForm
+	initAjaxForm();
 
-	//add init modals class
+	//image Popup
+	$('.js-image').magnificPopup({
+		type: 'image',
+		fixedContentPos: true,
+		removalDelay: 300,
+		mainClass: 'mp',
+		image: {
+			titleSrc: '', // Attribute of the target element that contains caption for the slide.
+			verticalFit: false, // Fits image in area vertically
+			tError: '<a href="%url%">Картинку</a> не удалось загрузить' // Error message
+		}
+	});
 
 
 	(function () {
@@ -178,18 +188,43 @@ $(document).ready(function () {
 		});
 	}());
 
+	// Ajax Form
+	function initAjaxForm() {
+		var form = $('.js-modal').find('form');
+
+		form.submit(function (e) {
+			e.preventDefault();
+			var _this = $(this);
+			var post_data = _this.serialize();
+
+			// Ajax post data to server
+			$.post('mail.php', post_data, function(response){
+				if (response.type == 'error'){
+					// your code here
+				} else {
+					// your code here
+				}
+			}, 'json');
+		});
+	}
+
 	function initModals() {
 		var modalBtn = $('.js-init-modal');
 		modalBtn.on('click', function (e) {
+			var _thisBtn = $(this);
 			e.preventDefault();
-			var ref = $(this).data('href');
+			var ref = _thisBtn.data('href');
 			$('body').addClass('is-locked');
 			$.get('modals/' + ref + '.html', function (data) {
 				$('body').append('<div class="modal js-modal">' + data + '</div>');
+				if (_thisBtn.attr('data-topic')) {
+					$('.modal').find('form').append('<input type="text" class="is-hidden" name="user_topic">');
+				}
 				$('.modal').fadeIn();
 				initMask();
 				initValidation();
 				initModalClose();
+				initAjaxForm();
 			});
 		});
 	}
@@ -207,22 +242,25 @@ $(document).ready(function () {
 		});
 
 		modal.on('click', function (e) {
-			if (!$(this).is(e.target)) return false;
-			$(this).fadeOut(function () {
-				$('body').removeClass('is-locked');
-				$(this).remove();
-			});
+			if (!$(this).is(e.target)) {
+				//code here
+			} else {
+				$(this).fadeOut(function () {
+					$('body').removeClass('is-locked');
+					$(this).remove();
+				});
+			}
 		});
 	}
 
-	function initMask(){
+	function initMask() {
 		var phoneInput = $(".js-phone-mask");
 
 		phoneInput.mask("+9(999)999-99-99");
 
 		//SET CURSOR POSITION
-		$.fn.setCursorPosition = function(pos) {
-			this.each(function(index, elem) {
+		$.fn.setCursorPosition = function (pos) {
+			this.each(function (index, elem) {
 				if (elem.setSelectionRange) {
 					elem.setSelectionRange(pos, pos);
 				} else if (elem.createTextRange) {
@@ -236,22 +274,22 @@ $(document).ready(function () {
 			return this;
 		};
 
-		phoneInput.on('focus', function(){
+		phoneInput.on('focus', function () {
 			var _this = $(this);
 
-			setTimeout(function() {
+			setTimeout(function () {
 				_this.setCursorPosition(1);
-			},100);
+			}, 100);
 		});
 	}
 
 	function initValidation() {
 		$.validate({
-			validateOnBlur : true,
-			showHelpOnFocus : false,
-			addSuggestions : false,
+			validateOnBlur: true,
+			showHelpOnFocus: false,
+			addSuggestions: false,
 			scrollToTopOnError: false,
-			borderColorOnError : '#FF0000'
+			borderColorOnError: '#FF0000'
 		});
 	}
 

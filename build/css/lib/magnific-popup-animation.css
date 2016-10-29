@@ -1,0 +1,33 @@
+/* overlay at start */
+.mp.mfp-bg {
+	opacity: 0;
+
+	-webkit-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
+}
+/* overlay animate in */
+.mp.mfp-bg.mfp-ready {
+	opacity: 0.8;
+}
+/* overlay animate out */
+.mp.mfp-bg.mfp-removing {
+	opacity: 0;
+}
+
+/* content at start */
+.mp.mfp-wrap .mfp-content {
+	opacity: 0;
+
+	-webkit-transition: all 0.25s ease-out;
+	-moz-transition: all 0.25s ease-out;
+	transition: all 0.25s ease-out;
+}
+/* content animate it */
+.mp.mfp-wrap.mfp-ready .mfp-content {
+	opacity: 1;
+}
+/* content animate out */
+.mp.mfp-wrap.mfp-removing .mfp-content {
+	opacity: 0;
+}
