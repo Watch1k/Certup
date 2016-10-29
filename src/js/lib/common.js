@@ -83,10 +83,16 @@ $(document).ready(function () {
 			value = $('.js-circle-value'),
 			number = $('.js-circle-number'),
 			select = $('.js-circle-select'),
-			option = select.children();
+			option = select.children(),
+			numberText = 0;
 
 		select.on('change', function () {
 			var selectIndex = $(this).prop('selectedIndex') + 1;
+
+			numberText = number.filter(function () {
+				return $(this).data('index') == selectIndex;
+			}).attr('data-value');
+			value.text(numberText);
 
 			changeNumber(selectIndex);
 			switchSelectCircle(selectIndex)
@@ -95,10 +101,14 @@ $(document).ready(function () {
 		number.on('click', function () {
 			var numberIndex = $(this).data('index');
 
+			numberText = number.filter(function () {
+				return $(this).data('index') == numberIndex;
+			}).attr('data-value');
+			value.text(numberText);
+
 			option.eq(numberIndex - 1).prop('selected', true);
 
 			changeNumber(numberIndex);
-
 			switchSelectCircle(numberIndex);
 		});
 
