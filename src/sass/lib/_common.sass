@@ -262,9 +262,9 @@ img
 	&__container
 		position: relative
 		z-index: 3
-		max-width: 1200px
-		padding-left: 90px
-		padding-right: 115px
+		margin-left: auto
+		margin-right: auto
+		max-width: 994px
 	&:before
 		content: ''
 		position: absolute
@@ -395,8 +395,9 @@ img
 	 Start
 	 =================================== */
 .start
+	position: relative
 	padding-top: 150px
-	min-height: 930px
+	padding-bottom: 150px
 	background-color: #b6b6b6
 	background-image: linear-gradient(to top, #eef5fb 0%, #fafcfd 99%, #fafcfd 100%)
 	&__col
@@ -998,7 +999,121 @@ img
 		max-width: none
 		height: auto
 				
+/* ===================================
+	 Navigation
+	 =================================== */
+.navigation
+	position: absolute
+	bottom: 0
+	left: 0
+	right: 0
+	z-index: 2
+	&__container
+		display: table
+		width: 100%
+		max-width: 1560px
+		&:after
+			content: none
+			display: none
+	&__btn
+		cursor: pointer
+		display: table-cell
+		vertical-align: middle
+		width: 25%
+		font-size: 16px
+		font-weight: 400
+		text-transform: uppercase
+		text-align: center
+		height: 140px
+		& + &
+			border-left: 1px solid #c8c8c8
 		
+/* ===================================
+	 El
+	 =================================== */
+.el
+	&__slider
+		max-width: 1600px
+		position: relative
+		padding-top: 140px
+		
+.slider
+	&__item
+		position: relative
+		padding-left: 20px
+		padding-right: 20px
+		&-row
+			position: relative
+			z-index: 1
+			font-size: 0
+	&__abs
+		position: absolute
+		z-index: 2
+		left: 0
+		right: 0
+		bottom: 100%
+		margin-bottom: 15px
+		font-size: 14px
+		font-weight: 500
+		line-height: 1.43
+		text-transform: uppercase
+	&__num1
+		position: relative
+		display: inline-block
+		margin-right: 5px
+		font-size: 18px
+		font-weight: 500
+		&:before
+			pointer-events: none
+			content: ''
+			position: absolute
+			left: 0
+			top: -3px
+			bottom: 3px
+			right: 0
+			background: url(../img/bg/line.png) center center no-repeat
+			background-size: 100% 100%
+	&__text1
+		display: inline-block
+		margin-right: 10px
+		font-size: 18px
+		font-weight: 500
+	&__text2
+		display: inline-block
+		margin-right: 10px
+		font-size: 18px
+		font-weight: 500
+	&__num2
+		display: inline-block
+		margin-right: 5px
+		color: #39444c
+		font-size: 24px
+		font-weight: 900
+	&__text3
+		display: inline-block
+		margin-right: 5px
+		font-size: 18px
+		line-height: 20px
+		font-weight: 500
+	&__btn
+		display: block
+		height: 50px
+		font-size: 16px
+		color: #44a5e1
+		line-height: 50px
+		text-align: center
+		font-weight: 700
+		text-transform: uppercase
+		border: 1px solid #3f8eca
+		border-radius: 6px
+		&:hover
+			color: #ffffff
+			background-image: linear-gradient(to top, #6eb5da 0%, #6eb5da 1%, #3ba1e2 99%, #3ba1e2 100%)
+			border: 1px solid #3f8eca
+		&:active
+			color: #ffffff
+			background-image: linear-gradient(to top, #58a3ca 0%, #58a3ca 1%, #3290cb 99%, #3290cb 100%)
+			border: 1px solid #3f8eca
 		
 		
 
