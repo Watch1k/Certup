@@ -41,4 +41,16 @@ $(document).ready(function () {
 		}
 	})();
 
+	(function () {
+		var slider = $('.js-slider');
+
+		slider.slick({
+			infinite: false,
+			slidesToShow: 4,
+			slidesToScroll: 4,
+			prevArrow: '<button type="button" class="slick-prev"><svg class="icon icon-arrow-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-arrow-left"></use></svg></button>',
+			nextArrow: '<button type="button" class="slick-next"><svg class="icon icon-arrow-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-arrow-right"></use></svg></button>'
+		});
+	})();
+
 });

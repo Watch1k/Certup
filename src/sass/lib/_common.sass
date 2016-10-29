@@ -1026,8 +1026,15 @@ img
 		text-transform: uppercase
 		text-align: center
 		height: 140px
+		+trs
+		&:hover
+			background-color: rgba(255, 255, 255, .5)
+		&.is-active
+			background-color: #ffffff
 		& + &
 			border-left: 1px solid #c8c8c8
+	&__icon
+		margin-bottom: 15px
 		
 /* ===================================
 	 El
@@ -1036,17 +1043,22 @@ img
 	&__slider
 		max-width: 1600px
 		position: relative
-		padding-top: 140px
 		
 .slider
 	&__item
 		position: relative
+		padding-top: 140px
 		padding-left: 20px
 		padding-right: 20px
 		&-row
 			position: relative
 			z-index: 1
 			font-size: 0
+			text-align: center
+	&__img
+		margin-top: 15px
+		margin-left: -51px
+		margin-right: -50px
 	&__abs
 		position: absolute
 		z-index: 2
@@ -1096,6 +1108,10 @@ img
 		font-size: 18px
 		line-height: 20px
 		font-weight: 500
+	&__text4
+		font-size: 18px
+		color: #262525
+		font-weight: 300
 	&__btn
 		display: block
 		height: 50px
@@ -1115,6 +1131,18 @@ img
 			color: #ffffff
 			background-image: linear-gradient(to top, #58a3ca 0%, #58a3ca 1%, #3290cb 99%, #3290cb 100%)
 			border: 1px solid #3f8eca
+	.slick-prev,
+	.slick-next
+		position: absolute
+		z-index: 10
+		color: grey
+		top: 50%
+		margin-top: 100px
+		+vertical
+	.slick-prev
+		left: -30px
+	.slick-next
+		right: -30px
 		
 		
 
