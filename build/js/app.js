@@ -116,12 +116,37 @@ $(document).ready(function () {
 	(function () {
 		var slider = $('.js-slider');
 
+		slider.each(function () {
+			if ($(this).index() > 0) {
+				$(this).on('init', function () {
+					$(this).hide();
+				});
+			}
+		});
+
 		slider.slick({
 			infinite: false,
 			slidesToShow: 4,
 			slidesToScroll: 4,
 			prevArrow: '<button type="button" class="slick-prev"><svg class="icon icon-arrow-left"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-arrow-left"></use></svg></button>',
 			nextArrow: '<button type="button" class="slick-next"><svg class="icon icon-arrow-right"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="img/sprite.svg#icon-arrow-right"></use></svg></button>'
+		});
+	})();
+
+	(function () {
+		var tabsItem = $('.js-slider-tab'),
+			tabsButton = $('.js-slider-nav').children();
+
+		tabsButton.on('click', function () {
+			var index = $(this).index();
+
+			tabsButton.removeClass('is-active');
+			$(this).addClass('is-active');
+
+			tabsItem.fadeOut().promise().done(function () {
+				tabsItem.eq(index).fadeIn();
+				tabsItem.eq(index).slick('setPosition');
+			});
 		});
 	})();
 
