@@ -1,4 +1,4 @@
-footer.footer
+footer.footer#footer
 	.footer__container.container
 		h3.footer__title Контакты
 		p.footer__subtitle Центр сертификации “CERTUP”
@@ -17,24 +17,24 @@ footer.footer
 				a.footer__link(href='mailto:zh.akhmetov@certup.kz') zh.akhmetov@certup.kz
 			.footer__col
 				nav.footer__nav
-					a.footer__nav-link(href='#') Сертификаты
-					a.footer__nav-link(href='#') Преимущества
-					a.footer__nav-link(href='#') Как получить сертификат
-					a.footer__nav-link(href='#') Менеджер
-					a.footer__nav-link(href='#') Вопрос-ответ
-					a.footer__nav-link(href='#') Клиенты о нас
-					a.footer__nav-link(href='#') Контакты
+					a.footer__nav-link(href='#navigation') Сертификаты
+					a.footer__nav-link(href='#econom') Преимущества
+					a.footer__nav-link(href='#cert') Как получить сертификат
+					a.footer__nav-link(href='#person') Менеджер
+					a.footer__nav-link(href='#faq') Вопрос-ответ
+					a.footer__nav-link(href='#comment') Клиенты о нас
+					a.footer__nav-link(href='#footer') Контакты
 			.footer__col
 				h4.footer__col-title ОСТАЛИСЬ ВОПРОСЫ?
 				p.footer__col-subtitle Сообщите свои контакты <br>и мы с Вами свяжемся
 				form.footer__form(action='#')
 					.footer__form-field
-						input.footer__form-input(type='text' placeholder='Имя' data-validation='required')
+						input.footer__form-input(type='text' placeholder='Имя' name='user_name' data-validation='required')
 					.footer__form-field
-						input.footer__form-input.js-phone-mask(type='text' placeholder='Номер телефона' data-validation='required')
+						input.footer__form-input.js-phone-mask(type='text' name='user_phone' placeholder='Номер телефона' data-validation='required')
 					.footer__form-field
-						button.footer__form-submit.btn.btn_blue(type='submit') заказать звонок
-					input.is-hidden(type='text' placeholder='' name="user_topic" data-topic="Вопрос")
+						button.footer__form-submit.btn.btn_blue(type='submit' data-mail='question') заказать звонок
+					input.is-hidden(type='text' placeholder='' name="user_topic" data-topic="Вопрос" value='Вопрос')
 		.footer__bot
 			.footer__bot-left
 				p © 2016 Certup Все права защищены

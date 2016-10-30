@@ -106,10 +106,19 @@ $(document).ready(function () {
 	//init AjaxForm
 	initAjaxForm();
 
-	new WOW().init();
+	var wow = new WOW(
+		{
+			mobile: false       // trigger animations on mobile devices (true is default)
+		}
+	);
+	wow.init();
+
+	if ($(window).width() < 1024) {
+		$(document).find('.wow').removeClass('wow');
+	}
 
 	//scroll to section
-	$('a[href^="#"]').on('click', function(e){
+	$('a[href^="#"]').on('click', function (e) {
 		e.preventDefault();
 		var el = $(this).attr('href');
 		$('html, body').animate({scrollTop: $(el).offset().top}, 2000);
@@ -125,7 +134,7 @@ $(document).ready(function () {
 			});
 			setTimeout(function () {
 				$('.faq__content-item').eq(1).find('a').addClass('animated').addClass('shake');
-			},2200);
+			}, 2200);
 		});
 	}
 
@@ -319,47 +328,141 @@ $(document).ready(function () {
 
 	// Ajax Form
 	function initAjaxForm() {
-		var form = $('.js-modal').find('form');
+		var form = $('body').find('form');
+		form.unbind();
+		initValidation();
 
 		form.submit(function (e) {
 			e.preventDefault();
 			var _this = $(this);
 			var post_data = _this.serialize();
+			var url = 0;
 
-			// Ajax post data to server
-			$.post('mail.php', post_data, function(response){
-				if (response.type == 'error'){
-					// your code here
-				} else {
-					// your code here
-				}
-			}, 'json');
-		});
-	}
-
-	function initModals() {
-		var modalBtn = $('.js-init-modal');
-		modalBtn.on('click', function (e) {
-			var _thisBtn = $(this);
-			e.preventDefault();
-			var ref = _thisBtn.data('href');
-			$('body').addClass('is-locked');
-			$.get('modals/' + ref + '.html', function (data) {
-				$('body').append('<div class="modal js-modal">' + data + '</div>');
-				if (_thisBtn.attr('data-topic')) {
-					var userTopic = _thisBtn.data('topic');
-					$('.modal').find('form').append('<input type="text" class="is-hidden" name="user_topic" value="' + userTopic + '">');
-				}
-				if (_thisBtn.attr('data-price')) {
-					var userPrice = _thisBtn.parent().find('.js-price').text();
-					$('.modal').find('form').append('<input type="text" class="is-hidden" name="user_price" value="' + userPrice + '">');
-				}
-				$('.modal').fadeIn();
-				initMask();
-				initValidation();
-				initModalClose();
-				initAjaxForm();
-			});
+			if (_this.find('button[type=submit]').data('mail') == 'call') {
+				url = _this.find('button[type=submit]').data('mail') + '.php';
+				// Ajax post data to server
+				$.post(url, post_data, function (response) {
+					if (response.type == 'error') {
+						// your code here
+					} else {
+						$('.js-modal').fadeOut(function () {
+							$(this).remove();
+						});
+						$('body').removeClass('is-locked');
+					}
+				}, 'json');
+			} else if (_this.find('button[type=submit]').data('mail') == 'certificate') {
+				url = _this.find('button[type=submit]').data('mail') + '.php';
+				// Ajax post data to server
+				$.post(url, post_data, function (response) {
+					if (response.type == 'error') {
+						// your code here
+					} else {
+						$('.js-modal').children().fadeOut(function () {
+							$(this).remove();
+							$.get('modals/modal_notify.html', function (data) {
+								$('.js-modal').append(data);
+								$('.js-modal').children().hide().fadeIn();
+								initModalClose();
+							});
+						});
+					}
+				}, 'json');
+			} else if (_this.find('button[type=submit]').data('mail') == 'calculate') {
+				url = _this.find('button[type=submit]').data('mail') + '.php';
+				// Ajax post data to server
+				$.post(url, post_data, function (response) {
+					if (response.type == 'error') {
+						// your code here
+					} else {
+						$('.js-modal').children().fadeOut(function () {
+							$(this).remove();
+							$.get('modals/modal_ty.html', function (data) {
+								$('.js-modal').append(data);
+								$('.js-modal').children().hide().fadeIn();
+								initModalClose();
+							});
+						});
+					}
+				}, 'json');
+			} else if (_this.find('button[type=submit]').data('mail') == 'code') {
+				url = _this.find('button[type=submit]').data('mail') + '.php';
+				// Ajax post data to server
+				$.post(url, post_data, function (response) {
+					if (response.type == 'error') {
+						// your code here
+					} else {
+						$.get('modals/modal_ty.html', function (data) {
+							$('body').append('<div class="modal js-modal">' + data + '</div>');
+							$('.js-modal').fadeIn();
+							setTimeout(function () {
+								_this.trigger('reset');
+							}, 3000);
+							initModalClose();
+						});
+					}
+				}, 'json');
+			} else if (_this.find('button[type=submit]').data('mail') == 'question') {
+				url = _this.find('button[type=submit]').data('mail') + '.php';
+				// Ajax post data to server
+				$.post(url, post_data, function (response) {
+					if (response.type == 'error') {
+						// your code here
+					} else {
+						$.get('modals/modal_notify.html', function (data) {
+							$('body').append('<div class="modal js-modal">' + data + '</div>');
+							$('.js-modal').fadeIn();
+							setTimeout(function () {
+								_this.trigger('reset');
+							}, 3000);
+							initModalClose();
+						});
+					}
+				}, 'json');
+			} else if (_this.find('button[type=submit]').data('mail') == 'manager_1') {
+				url = _this.find('button[type=submit]').data('mail') + '.php';
+				// Ajax post data to server
+				$.post(url, post_data, function (response) {
+					if (response.type == 'error') {
+						// your code here
+					} else {
+						$('.js-modal').fadeOut(function () {
+							$(this).remove();
+						});
+						$('body').removeClass('is-locked');
+					}
+				}, 'json');
+			} else if (_this.find('button[type=submit]').data('mail') == 'manager_2') {
+				url = _this.find('button[type=submit]').data('mail') + '.php';
+				// Ajax post data to server
+				$.post(url, post_data, function (response) {
+					if (response.type == 'error') {
+						// your code here
+					} else {
+						$('.js-modal').fadeOut(function () {
+							$(this).remove();
+						});
+						$('body').removeClass('is-locked');
+					}
+				}, 'json');
+			} else if (_this.find('button[type=submit]').data('mail') == 'percent') {
+				url = _this.find('button[type=submit]').data('mail') + '.php';
+				// Ajax post data to server
+				$.post(url, post_data, function (response) {
+					if (response.type == 'error') {
+						// your code here
+					} else {
+						$.get('modals/modal_notify.html', function (data) {
+							$('body').append('<div class="modal js-modal">' + data + '</div>');
+							$('.js-modal').fadeIn();
+							setTimeout(function () {
+								_this.trigger('reset');
+							}, 3000);
+							initModalClose();
+						});
+					}
+				}, 'json');
+			}
 		});
 	}
 
@@ -367,8 +470,7 @@ $(document).ready(function () {
 		var modal = $('.js-modal'),
 			closeBtn = $('.js-modal-close');
 
-		closeBtn.on('click', function (e) {
-			e.preventDefault();
+		closeBtn.on('click', function () {
 			$(this).closest(modal).fadeOut(function () {
 				$('body').removeClass('is-locked');
 				$(this).remove();
@@ -424,6 +526,32 @@ $(document).ready(function () {
 			addSuggestions: false,
 			scrollToTopOnError: false,
 			borderColorOnError: '#FF0000'
+		});
+	}
+
+	function initModals() {
+		var modalBtn = $('.js-init-modal');
+		modalBtn.on('click', function (e) {
+			var _thisBtn = $(this);
+			e.preventDefault();
+			var ref = _thisBtn.data('href');
+			$('body').addClass('is-locked');
+			$.get('modals/' + ref + '.html', function (data) {
+				$('body').append('<div class="modal js-modal">' + data + '</div>');
+				if (_thisBtn.attr('data-topic')) {
+					var userTopic = _thisBtn.data('topic');
+					$('.modal').find('form').append('<input type="text" class="is-hidden" name="user_topic" value="' + userTopic + '">');
+				}
+				if (_thisBtn.attr('data-price')) {
+					var userPrice = _thisBtn.parent().find('.js-price').text();
+					$('.modal').find('form').append('<input type="text" class="is-hidden" name="user_price" value="' + userPrice + '">');
+				}
+				$('.modal').fadeIn();
+				initMask();
+				initValidation();
+				initModalClose();
+				initAjaxForm();
+			});
 		});
 	}
 

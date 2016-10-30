@@ -7,9 +7,8 @@ include ../includes/_mixins
 	p.modal__text Пожалуйста, укажите Ваши данные. Салтанат перезвонит Вам в течение <br>3 минут.
 	form.modal__form.form(action='../index.html' method='get')
 		.form__field
-			input.form__input(type='text' placeholder='Имя' data-validation='required')
+			input.form__input(type='text' placeholder='Имя' name='user_name' data-validation='required')
 		.form__field
-			input.form__input.js-phone-mask(type='text' placeholder='Номер телефона' data-validation='required')
+			input.form__input.js-phone-mask(type='number' name='user_phone' placeholder='Номер телефона' data-validation='required')
 		.form__field
-			button.form__submit.btn.btn_blue(type='submit') заказать звонок
-		input.is-hidden(type='text' placeholder='' name="user_topic" data-topic="Салтанат")
+			button.form__submit.btn.btn_blue(type='submit' data-mail='manager_2') заказать звонок

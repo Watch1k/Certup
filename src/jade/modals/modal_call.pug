@@ -9,6 +9,6 @@ include ../includes/_mixins
 		.form__field
 			input.form__input(type='text' placeholder='Имя' name='user_name' data-validation='required')
 		.form__field
-			input.form__input.js-phone-mask(type='text' name='user_phone' placeholder='Номер телефона' data-validation='required')
+			input.form__input.js-phone-mask(type='number' name='user_phone' placeholder='Номер телефона' data-validation='required')
 		.form__field
-			button.form__submit.btn.btn_blue(type='submit') заказать звонок
+			button.form__submit.btn.btn_blue(type='submit' data-mail='call') заказать звонок

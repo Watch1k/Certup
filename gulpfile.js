@@ -210,6 +210,8 @@ gulp.task('js', function() {
 gulp.task('copy', function() {
 		gulp.src('src/*.php')
 				.pipe(gulp.dest('build/'));
+		gulp.src('src/*.png')
+			.pipe(gulp.dest('build/'));
 		gulp.src('src/img/**')
 				.pipe(gulp.dest('build/img/'));
 		gulp.src('src/fonts/*.*')
@@ -255,6 +257,8 @@ gulp.task('watch', function() {
 		gulp.watch('src/jade/**/*.pug', ['jade']);
 		gulp.watch(src.sass + '/**/*', ['sass']);
 		gulp.watch('src/js/**/*.js', ['js']);
+		gulp.watch('src/*.php', ['copy']);
+		gulp.watch('src/*.png', ['copy']);
 		gulp.watch('src/img/**/*', ['sprite', 'copy']);
 		gulp.watch('src/img/svg/**/*', ['svg-sprite', 'copy']);
 		gulp.watch(src.img + '/icons/*.png', ['sprite']);

@@ -10,22 +10,22 @@ if ($_POST) {
                 'text' => 'Sorry Request must be Ajax POST'
             ));
             die($output); //exit script outputting json data
-        } 
+        }
         
         //Sanitize input data using PHP filter_var().
         $user_name = filter_var($_POST["user_name"], FILTER_SANITIZE_STRING);
         $user_phone = filter_var($_POST["user_phone"], FILTER_SANITIZE_STRING);
         $user_topic = filter_var($_POST["user_topic"], FILTER_SANITIZE_STRING);
+        $user_price = filter_var($_POST["user_price"], FILTER_SANITIZE_STRING);
 
         // subject
-        $subject = $user_topic;
-        
+        $subject = $user_topic . ' - ' . $user_price;
+
         //email body
-        $message_body = "Тема: " . $user_topic . "\r\n" . "Имя отправителя: " . $user_name . "\r\n" . "Телефон: " . $user_phone;
+        $message_body = "Тема: " . $user_topic . "\r\n" . "Имя отправителя: " . $user_name . "\r\n" . "Телефон: " . $user_phone . "\r\n" . "Цена: " . $user_price;
 
         //proceed with PHP email.
-        $headers = 'From: '.$user_topic.'' . "\r\n" .
-        'Reply-To: '.$to_email.'' . "\r\n" .
+        $headers = 'From: ' . '' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
         
         $send_mail = mail($to_email, $subject, $message_body, $headers);
